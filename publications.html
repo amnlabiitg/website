@@ -6,79 +6,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications | Dr. Archana M Nair</title>
 
+    <!-- Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="./tailwind-config.js"></script>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Public+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f4f8f7',
+                            100: '#e2eeec',
+                            200: '#c5dedb',
+                            300: '#9ec6c2',
+                            400: '#74a8a3',
+                            500: '#5b8582', // Base Teal
+                            600: '#476a68',
+                            700: '#3b5654',
+                            800: '#334746',
+                            900: '#2d3d3c',
+                        },
+                        secondary: {
+                            50: '#fdf2f6',
+                            100: '#fbe6ee',
+                            200: '#f7d0df',
+                            300: '#f2b9c3', // Light Pink
+                            400: '#e890aa',
+                            500: '#cf6185', // Base Rose
+                            600: '#ba4268',
+                            700: '#9f3252',
+                        },
+                        mint: {
+                            500: '#ace0cb',
+                        },
+                        beige: {
+                            300: '#e6e4c6',
+                        },
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Manrope', 'sans-serif'],
+                        sans: ['Public Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         .glass-nav {
             background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .bg-topo {
-            background-color: #f8fafc;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 C 20 10 40 10 50 0 C 60 10 80 10 100 0 V 100 H 0 Z' fill='none' stroke='%23cbd5e1' stroke-width='0.5' opacity='0.4'/%3E%3C/svg%3E");
-            background-size: 200px 200px;
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(91, 133, 130, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(91, 133, 130, 0.05) 1px, transparent 1px);
         }
     </style>
 </head>
 
-<body class="min-h-screen bg-topo font-sans text-slate-600 selection:bg-brand-100 selection:text-brand-900">
+<body
+    class="min-h-screen bg-beige-300/20 bg-grid-pattern font-sans text-stone-800 selection:bg-mint-500 selection:text-primary-900">
 
     <!-- Background Watermark -->
-    <div class="fixed inset-0 z-0 flex items-center justify-center pointer-events-none">
-        <img src="IITG_logo.png" class="w-2/3 md:w-1/3 opacity-10 object-contain" alt="">
+    <div class="fixed inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        <img src="IITG_logo.png" class="w-[35rem] max-w-none opacity-10" alt="Background Logo">
     </div>
 
-    <nav class="glass-nav sticky top-0 z-50">
+    <!-- Navigation -->
+    <nav class="glass-nav sticky top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-3">
-                    <a href="index.html"
-                        class="w-10 h-10 rounded-xl bg-brand-700 flex items-center justify-center text-white shadow-lg shadow-brand-700/20 relative overflow-hidden group">
-                        <div
-                            class="absolute inset-0 border-2 border-white/20 rounded-full scale-150 group-hover:scale-125 transition-transform">
-                        </div>
-                        <span class="font-display font-bold text-lg relative z-10">AN</span>
-                    </a>
+                <!-- Brand -->
+                <div class="flex items-center gap-3 group cursor-pointer" onclick="window.location.href='index.html'">
+                    <img src="IITG_logo.png" class="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
+                        alt="IITG Logo">
                     <div class="flex flex-col">
-                        <span class="font-display font-bold text-slate-900 text-lg leading-tight">Dr. Archana M
-                            Nair</span>
-                        <span class="text-xs font-medium text-slate-500 uppercase tracking-wide">IIT Guwahati</span>
+                        <span
+                            class="font-display font-bold text-stone-900 text-lg leading-tight group-hover:text-primary-800 transition-colors">Dr.
+                            Archana M Nair</span>
+                        <span class="text-xs font-semibold text-primary-600 uppercase tracking-wide">IIT Guwahati</span>
                     </div>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div
-                    class="hidden lg:flex items-center gap-1 p-1 bg-white/60 rounded-full border border-slate-200/60 backdrop-blur-md">
+                    class="hidden lg:flex items-center gap-1 bg-white/50 p-1.5 rounded-full border border-stone-200/60 shadow-sm backdrop-blur-sm">
                     <a href="index.html"
-                        class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-slate-600 hover:text-brand-700 hover:bg-white/50">Home</a>
+                        class="nav-link px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-primary-800 hover:bg-white/80 transition-all">Home</a>
                     <a href="research.html"
-                        class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-slate-600 hover:text-brand-700 hover:bg-white/50">Research</a>
+                        class="nav-link px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-primary-800 hover:bg-white/80 transition-all">Research</a>
                     <a href="projects.html"
-                        class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-slate-600 hover:text-brand-700 hover:bg-white/50">Projects</a>
+                        class="nav-link px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-primary-800 hover:bg-white/80 transition-all">Projects</a>
                     <a href="publications.html"
-                        class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-brand-50 text-brand-700 shadow-sm">Publications</a>
+                        class="px-5 py-2 rounded-full text-sm font-semibold transition-all bg-primary-800 text-white shadow-md">Publications</a>
                     <a href="teaching.html"
-                        class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-slate-600 hover:text-brand-700 hover:bg-white/50">Teaching</a>
+                        class="nav-link px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-primary-800 hover:bg-white/80 transition-all">Teaching</a>
                     <a href="people.html"
-                        class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-slate-600 hover:text-brand-700 hover:bg-white/50">People</a>
+                        class="nav-link px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-primary-800 hover:bg-white/80 transition-all">People</a>
                     <a href="contact.html"
-                        class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all text-slate-600 hover:text-brand-700 hover:bg-white/50">Contact</a>
+                        class="nav-link px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-primary-800 hover:bg-white/80 transition-all">Contact</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden">
                     <button onclick="toggleMobileMenu()"
-                        class="p-2 text-slate-600 hover:text-brand-700 hover:bg-brand-50 rounded-lg transition-colors">
+                        class="p-2.5 text-stone-600 hover:text-primary-800 hover:bg-primary-50 rounded-xl transition-colors">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -87,499 +153,400 @@
 
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu"
-            class="hidden lg:hidden bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-xl fixed w-full z-40 left-0 top-20">
-            <div class="px-4 py-4 space-y-2">
+            class="hidden lg:hidden bg-white/95 backdrop-blur-xl border-t border-stone-100 shadow-xl fixed w-full z-40 left-0 top-20">
+            <div class="px-4 py-6 space-y-3">
                 <a href="index.html"
-                    class="block w-full text-left px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-700">Home</a>
+                    class="block w-full text-left px-5 py-3 rounded-xl font-medium text-stone-600 hover:bg-stone-50 hover:text-primary-800">Home</a>
                 <a href="research.html"
-                    class="block w-full text-left px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-700">Research</a>
+                    class="block w-full text-left px-5 py-3 rounded-xl font-medium text-stone-600 hover:bg-stone-50 hover:text-primary-800">Research</a>
                 <a href="projects.html"
-                    class="block w-full text-left px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-700">Projects</a>
+                    class="block w-full text-left px-5 py-3 rounded-xl font-medium text-stone-600 hover:bg-stone-50 hover:text-primary-800">Projects</a>
                 <a href="publications.html"
-                    class="block w-full text-left px-4 py-3 rounded-xl font-medium bg-brand-50 text-brand-700">Publications</a>
+                    class="block w-full text-left px-5 py-3 rounded-xl font-bold bg-primary-50 text-primary-800">Publications</a>
                 <a href="teaching.html"
-                    class="block w-full text-left px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-700">Teaching</a>
+                    class="block w-full text-left px-5 py-3 rounded-xl font-medium text-stone-600 hover:bg-stone-50 hover:text-primary-800">Teaching</a>
                 <a href="people.html"
-                    class="block w-full text-left px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-700">People</a>
+                    class="block w-full text-left px-5 py-3 rounded-xl font-medium text-stone-600 hover:bg-stone-50 hover:text-primary-800">People</a>
                 <a href="contact.html"
-                    class="block w-full text-left px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-50 hover:text-brand-700">Contact</a>
+                    class="block w-full text-left px-5 py-3 rounded-xl font-medium text-stone-600 hover:bg-stone-50 hover:text-primary-800">Contact</a>
             </div>
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 space-y-12">
 
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-slate-200 pb-6">
-            <h1 class="font-display font-extrabold text-3xl md:text-4xl text-slate-900">Publications</h1>
-            <div class="flex gap-2">
-                <span class="text-slate-500 text-sm font-medium bg-slate-100 px-3 py-1 rounded-full">Articles</span>
-                <span class="text-slate-500 text-sm font-medium bg-slate-100 px-3 py-1 rounded-full">Proceedings</span>
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-stone-200 pb-8">
+            <div>
+                <h1 class="font-display font-extrabold text-3xl md:text-4xl text-stone-900">
+                    <img src="IITG_logo.png" class="inline-block w-8 h-8 md:w-10 md:h-10 mr-2 mb-1 align-baseline"
+                        alt="IITG Logo">
+                    Publications
+                </h1>
+                <p class="text-stone-500 font-medium mt-2">Research contributions and proceedings</p>
+            </div>
+            <div class="flex gap-3 mt-4 md:mt-0">
+                <span
+                    class="text-stone-600 text-sm font-bold bg-white border border-stone-200 px-4 py-1.5 rounded-xl shadow-sm">Journal
+                    Articles</span>
+                <span
+                    class="text-stone-600 text-sm font-bold bg-white border border-stone-200 px-4 py-1.5 rounded-xl shadow-sm">Proceedings</span>
             </div>
         </div>
 
         <!-- Refereed Journals -->
         <div
-            class="animate-slide-up bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-100 shadow-sm relative overflow-hidden">
+            class="animate-slide-up bg-white rounded-[2.5rem] p-8 md:p-12 border border-stone-100 shadow-xl shadow-stone-200/40 relative overflow-hidden">
+            <!-- Decorative Elements -->
+            <div
+                class="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary-50/30 to-transparent pointer-events-none">
+            </div>
 
-            <!-- Section Decorator -->
-            <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-50 rounded-full opacity-50 blur-2xl"></div>
-
-            <h2 class="font-display font-bold text-xl text-slate-900 mb-8 flex items-center gap-2 relative z-10">
-                <span class="w-2 h-8 bg-brand-500 rounded-full"></span>
+            <h2 class="font-display font-bold text-2xl text-stone-900 mb-10 flex items-center gap-4 relative z-10">
+                <span class="w-12 h-12 rounded-2xl bg-secondary-50 text-secondary-600 flex items-center justify-center">
+                    <i data-lucide="book-open" class="w-6 h-6"></i>
+                </span>
                 Refereed Journal Articles
             </h2>
 
-            <ol class="space-y-10 list-decimal list-outside ml-5 text-slate-700 relative z-10">
-
-                <!-- 2025 -->
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">S Katre, P Ochonma, A Mamidala, S Sahu, AM Nair, K Ravi, G
-                        Gadikota (2025)</span>
-                    <a href="#"
-                        class="block mt-1 text-brand-600 hover:text-brand-800 font-medium text-lg hover:underline leading-snug">
-                        Organic ligands and CO2 unlock the potential for energy relevant metals recovery and carbon
-                        mineralization from mafic rocks
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Scientific Reports</span> • <span>15 (1),
-                            10882</span>
+            <div class="space-y-8 relative z-10">
+                <!-- 2025 Block -->
+                <div class="relative pl-8 border-l-2 border-primary-100 space-y-8">
+                    <!-- Item -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">S Katre, P Ochonma, A Mamidala, S Sahu, AM
+                            Nair, K Ravi, G Gadikota (2025)</p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-primary-700 hover:text-primary-800 hover:underline leading-tight mb-2">
+                            Organic ligands and CO2 unlock the potential for energy relevant metals recovery and carbon
+                            mineralization from mafic rocks
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">Scientific Reports</span>
+                            <span>•</span>
+                            <span>15 (1), 10882</span>
+                        </div>
                     </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">D Deka, K Ravi, AM Nair (2025)</span>
-                    <a href="#"
-                        class="block mt-1 text-brand-600 hover:text-brand-800 font-medium text-lg hover:underline leading-snug">
-                        Impact of urbanisation on groundwater vulnerability in shallow aquifer system of Assam: A
-                        DRASTIC approach
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Urban Climate</span> • <span>59, 102299</span>
+                    <!-- Item -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">D Deka, K Ravi, AM Nair (2025)</p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-primary-700 hover:text-primary-800 hover:underline leading-tight mb-2">
+                            Impact of urbanisation on groundwater vulnerability in shallow aquifer system of Assam: A
+                            DRASTIC approach
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">Urban Climate</span>
+                            <span>•</span>
+                            <span>59, 102299</span>
+                        </div>
                     </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">M Nanda, AM Nair (2025)</span>
-                    <a href="#"
-                        class="block mt-1 text-brand-600 hover:text-brand-800 font-medium text-lg hover:underline leading-snug">
-                        Spatio-temporal variability in stable water isotopes of Brahmaputra river system and its
-                        implications
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Journal of Environmental Management</span> •
-                        <span>381, 125250</span>
+                    <!-- Item -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">M Nanda, AM Nair (2025)</p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-primary-700 hover:text-primary-800 hover:underline leading-tight mb-2">
+                            Spatio-temporal variability in stable water isotopes of Brahmaputra river system and its
+                            implications
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">Journal of Environmental Management</span>
+                            <span>•</span>
+                            <span>381, 125250</span>
+                        </div>
                     </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">AK Pal, A Kumar, AM Nair (2025)</span>
-                    <a href="#"
-                        class="block mt-1 text-brand-600 hover:text-brand-800 font-medium text-lg hover:underline leading-snug">
-                        Mapping critical zone thickness using remote sensing and artificial neural network in northeast
-                        India
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Discover Geoscience</span> • <span>3 (1),
-                            153</span>
+                    <!-- Item -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">AK Pal, A Kumar, AM Nair (2025)</p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-primary-700 hover:text-primary-800 hover:underline leading-tight mb-2">
+                            Mapping critical zone thickness using remote sensing and artificial neural network in
+                            northeast India
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">Discover Geoscience</span>
+                            <span>•</span>
+                            <span>3 (1), 153</span>
+                        </div>
                     </div>
-                </li>
+                </div>
 
                 <!-- 2024 -->
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">S Katre, P Ochonma, H Asgar, AM Nair, G Gadikota
-                        (2024)</span>
-                    <a href="#" class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Mechanistic insights into the co-recovery of nickel and iron via integrated carbon
-                        mineralization of serpentinized peridotite by harnessing organic ligands
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Physical Chemistry Chemical Physics</span> •
-                        <span>26 (12), 9264-9283</span>
+                <div class="relative pl-8 border-l-2 border-primary-100 space-y-8">
+                    <!-- Item -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">S Katre, P Ochonma, H Asgar, AM Nair, G
+                            Gadikota (2024)</p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-stone-900 group-hover:text-primary-700 transition-colors leading-tight mb-2">
+                            Mechanistic insights into the co-recovery of nickel and iron via integrated carbon
+                            mineralization of serpentinized peridotite by harnessing organic ligands
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">Physical Chemistry Chemical Physics</span>
+                            <span>•</span>
+                            <span>26 (12), 9264-9283</span>
+                        </div>
                     </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">S Kumar, M Manga, AM Nair, A Dixit, C Mahanta (2024)</span>
-                    <a href="#" class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Water geochemistry and stable isotope changes record groundwater mixing after a regional
-                        earthquake in Northeast India
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Geochemistry, Geophysics, Geosystems</span> •
-                        <span>25 (7)</span>
+                    <!-- Item -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">S Kumar, M Manga, AM Nair, A Dixit, C Mahanta
+                            (2024)</p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-stone-900 group-hover:text-primary-700 transition-colors leading-tight mb-2">
+                            Water geochemistry and stable isotope changes record groundwater mixing after a regional
+                            earthquake in Northeast India
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">Geochemistry, Geophysics, Geosystems</span>
+                            <span>•</span>
+                            <span>25 (7)</span>
+                        </div>
                     </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">D Deka, D Patwa, AM Nair, K Ravi (2024)</span>
-                    <a href="#" class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Influence of biochar amendment on removal of heavy metal from soils using phytoremediation by
-                        Catharanthus roseus L. and Chrysopogon zizanioides L.
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Environmental Science and Pollution
-                            Research</span> • <span>31 (40)</span>
+                    <!-- Item -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">A Ahmad, AM Nair (2024)</p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-stone-900 group-hover:text-primary-700 transition-colors leading-tight mb-2">
+                            Spectral mixture analysis of intimate mixtures for lithological mapping
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">ISPRS Journal of Photogrammetry and Remote
+                                Sensing</span>
+                            <span>•</span>
+                            <span>208, 210-232</span>
+                        </div>
                     </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">A Ahmad, AM Nair (2024)</span>
-                    <a href="#" class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Spectral mixture analysis of intimate mixtures for lithological mapping
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">ISPRS Journal of Photogrammetry and Remote
-                            Sensing</span> • <span>208, 210-232</span>
+                    <!-- Item -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">S Garia, AK Pal, S Katre, S Nayak, K Ravi, AM
+                            Nair (2024)</p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-stone-900 group-hover:text-primary-700 transition-colors leading-tight mb-2">
+                            Seismic coloured inversion to explore the hydrocarbon prospectivity of a field in the Upper
+                            Assam basin
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">Exploration Geophysics</span>
+                            <span>•</span>
+                            <span>55 (6), 752-774</span>
+                        </div>
                     </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">A Ahmad, AM Nair (2024)</span>
-                    <a href="#"
-                        class="block mt-1 text-brand-600 hover:text-brand-800 font-medium text-lg hover:underline leading-snug">
-                        Lithological mapping of charnockites using spectral mixture analysis
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Remote Sensing Applications: Society and
-                            Environment</span> • <span>34, 101165</span>
-                    </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">S Garia, AK Pal, S Katre, S Nayak, K Ravi, AM Nair
-                        (2024)</span>
-                    <a href="#" class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Seismic coloured inversion to explore the hydrocarbon prospectivity of a field in the Upper
-                        Assam basin
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Exploration Geophysics</span> • <span>55 (6),
-                            752-774</span>
-                    </div>
-                </li>
+                </div>
 
                 <!-- 2023 -->
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">A Younes, A Ahmad, AD Hanjagi, AM Nair (2023)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Understanding dynamics of land use & land cover change using GIS & change detection techniques
-                        in Tartous, Syria
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">European Journal of Geography</span> • <span>14
-                            (3), 20-41</span>
+                <div class="relative pl-8 border-l-2 border-primary-100 space-y-8">
+                    <!-- Item -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">A Younes, A Ahmad, AD Hanjagi, AM Nair (2023)
+                        </p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-stone-900 group-hover:text-primary-700 transition-colors leading-tight mb-2">
+                            Understanding dynamics of land use & land cover change using GIS & change detection
+                            techniques in Tartous, Syria
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">European Journal of Geography</span>
+                            <span>•</span>
+                            <span>14 (3), 20-41</span>
+                        </div>
                     </div>
-                </li>
+                    <!-- Item -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">S Garia, AK Pal, S Katre, S Nayak, K Ravi, AM
+                            Nair (2023)</p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-stone-900 group-hover:text-primary-700 transition-colors leading-tight mb-2">
+                            Mapping petrophysical properties with seismic inversion constrained by laboratory based rock
+                            physics model
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">Earth Science Informatics</span>
+                            <span>•</span>
+                            <span>16 (4), 3191-3207</span>
+                        </div>
+                    </div>
+                </div>
 
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">S Garia, AK Pal, S Katre, S Nayak, K Ravi, AM Nair
-                        (2023)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Mapping petrophysical properties with seismic inversion constrained by laboratory based rock
-                        physics model
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Earth Science Informatics</span> • <span>16 (4),
-                            3191-3207</span>
+                <!-- Older Highlights (Truncated for brevity in redesign, but included key ones) -->
+                <div class="relative pl-8 border-l-2 border-primary-100 space-y-8">
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[39px] top-2 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-primary-500 group-hover:bg-primary-50 transition-colors">
+                        </div>
+                        <p class="text-sm text-stone-800 font-bold mb-1">AM Nair, G Mathew (2017)</p>
+                        <a href="#"
+                            class="block font-display font-bold text-lg text-stone-900 group-hover:text-primary-700 transition-colors leading-tight mb-2">
+                            Geochemical modelling of terrestrial igneous rock compositions using laboratory thermal
+                            emission spectroscopy with an overview on its applications to Indian Mars Mission
+                        </a>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-stone-500">
+                            <span class="bg-stone-100 px-2 py-1 rounded-md">Planetary and Space Science</span>
+                            <span>•</span>
+                            <span>140, 62-73</span>
+                        </div>
                     </div>
-                </li>
+                </div>
 
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">Siddharth Garia, Arnab Kumar Pal, A Bhuvaneswari Devi, K.
-                        Ravi, AM Nair (2023)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Development and optimisation of in-house fabricated, semi-automated helium gas porosimeter
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Arabian Journal of Geosciences</span> •
-                        <span>16</span>
-                    </div>
-                </li>
 
-                <!-- 2022 -->
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">Adnan Ahmad, Raj Patel, Bhaswati Deka, Rohit Nagori, AS Arya,
-                        Archana M Nair (2022)</span>
-                    <a href="#"
-                        class="block mt-1 text-brand-600 hover:text-brand-800 font-medium text-lg hover:underline leading-snug">
-                        Occurrence of secondary minerals at Tharsis Montes of Mars: A critical assessment
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">ICARUS</span> • <span>378</span>
-                    </div>
-                </li>
+            </div>
 
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">AM Nair, KR Prasad, R Srinivas (2022)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Groundwater vulnerability assessment of an urban coastal phreatic aquifer in India using
-                        GIS-based DRASTIC model
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Groundwater for Sustainable Development</span> •
-                        <span>19, 100810</span>
-                    </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">Ande Bhuvaneswari Devi, Dhritilekha Deka, Thayyil Davood
-                        Aneesh, Reji Srinivas, Archana M Nair (2022)</span>
-                    <a href="#"
-                        class="block mt-1 text-brand-600 hover:text-brand-800 font-medium text-lg hover:underline leading-snug">
-                        Predictive modelling of land use land cover dynamics for a tropical coastal urban city in
-                        Kerala, India
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Arabian J. Geosciences</span> • <span>15 (5),
-                            399</span>
-                    </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">AK Pal, S Garia, K Ravi, AM Nair (2022)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Pore scale image analysis for petrophysical modelling
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Micron</span> • <span>154, 103195</span>
-                    </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">S Katre, AM Nair (2022)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Modelling the effect of grain anisotropy on inter-granular porosity
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">J. Pet. Explor. Prod. Technol.</span> • <span>12
-                            (3), 763-781</span>
-                    </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">S Kumar, AB Devi, D Deka, AM Nair (2022)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        A climate zone perspective on spatiotemporal variations in GRACE derived groundwater storage
-                        (GWS) in India
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Journal of the Indian Society of Remote
-                            Sensing</span> • <span>50 (11), 2073-2105</span>
-                    </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">Siddharth Garia, Arnab Kumar Pal, K Ravi, Archana M Nair
-                        (2022)</span>
-                    <a href="#" class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        A multivariate statistical approach in correlating the acoustic properties with petrophysics and
-                        mineralogy on sandstones
-                    </a>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Geophysical Journal International</span> •
-                        <span>230 (1)</span>
-                    </div>
-                </li>
-
-                <!-- 2021 -->
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">AB Devi, AM Nair (2021)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Effects of urbanisation in a shallow coastal aquifer: An integrated GIS-based case study in
-                        Cochin, India
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Groundwater for Sustainable Development</span> •
-                        <span>15, 100656</span>
-                    </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">S Garia, AK Pal, K Ravi, AM Nair (2021)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Laboratory assessment on factors controlling the acoustic properties of carbonates: a case study
-                        from Bombay offshore
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Journal of Petroleum Science and
-                            Engineering</span> • <span>203</span>
-                    </div>
-                </li>
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">A Ahmad, AM Nair (2021)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Landform evolution of Tharsis Montes and Olympus Mons of Mars: Insights from morphometric,
-                        hypsometric and chronologic evidences
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Journal of Earth System Science</span> •
-                        <span>130 (3), 172</span>
-                    </div>
-                </li>
-
-                <!-- Older Highlights -->
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">S Garia, AK Pal, AM Nair, K Ravi (2020)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Elastic wave velocities as indicators of lithology-based geomechanical behaviour of sedimentary
-                        rocks: an overview
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">SN Applied Sciences</span> • <span>2 (9),
-                            1521</span>
-                    </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">TD Aneesh, R Srinivas, AT Singh, TR Resmi, AM Nair, BL Redkar
-                        (2019)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Stable water isotope signatures of dual monsoon precipitation: A case study of Greater Cochin
-                        region, south-west coast of India
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Journal of Earth System Science</span> •
-                        <span>128 (8)</span>
-                    </div>
-                </li>
-
-                <li class="pl-4">
-                    <span class="font-bold text-slate-900">AM Nair, G Mathew (2017)</span>
-                    <span class="block mt-1 text-slate-800 font-medium text-lg leading-snug">
-                        Geochemical modelling of terrestrial igneous rock compositions using laboratory thermal emission
-                        spectroscopy with an overview on its applications to Indian Mars Mission
-                    </span>
-                    <div
-                        class="flex items-center gap-2 mt-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                        <span class="bg-slate-100 px-2 py-0.5 rounded">Planetary and Space Science</span> • <span>140,
-                            62-73</span>
-                    </div>
-                </li>
-            </ol>
             <!-- More link -->
-            <div class="mt-8 pt-8 border-t border-slate-100 text-center">
+            <div class="mt-12 text-center relative z-10">
                 <a href="https://scholar.google.com/citations?user=gs2QFRoAAAAJ&hl=en" target="_blank"
-                    class="inline-flex items-center gap-2 px-6 py-3 bg-brand-50 text-brand-700 rounded-full font-bold hover:bg-brand-100 transition-colors">
-                    View Full Profile on Google Scholar <i data-lucide="external-link" class="w-4 h-4"></i>
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-primary-800 text-white rounded-xl font-bold hover:bg-primary-900 hover:-translate-y-0.5 transition-all shadow-lg hover:shadow-primary-900/20">
+                    <i data-lucide="graduation-cap" class="w-5 h-5"></i> View Full Profile on Google Scholar
                 </a>
             </div>
         </div>
 
         <!-- Conference Proceedings -->
-        <h2 class="font-display font-bold text-xl text-slate-900 mt-16 mb-8 flex items-center gap-2">
-            <span class="w-2 h-8 bg-purple-500 rounded-full"></span>
+        <h2 class="font-display font-bold text-2xl text-stone-900 mt-16 mb-8 flex items-center gap-4">
+            <span class="w-12 h-12 rounded-2xl bg-secondary-50 text-secondary-600 flex items-center justify-center">
+                <i data-lucide="presentation" class="w-6 h-6"></i>
+            </span>
             Conference Proceedings & Presentations
         </h2>
 
         <div class="grid lg:grid-cols-2 gap-8 animate-slide-up" style="animation-delay: 0.1s;">
 
-            <div class="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm">
-                <h3 class="font-bold text-lg text-slate-900 mb-6">Recent Presentations (2024-2025)</h3>
-                <div class="space-y-6 text-sm text-slate-600">
-                    <p><strong class="text-slate-900 block mb-1">AGU Fall Meeting 2024</strong>
-                        Hydrogeochemical Assessment of the Water Resources in the Brahmaputra River Basin, Northeast
-                        India<br>
-                        S Kumar, M Manga, A Dixit, M Nanda, SA Kartha, AM Nair</p>
+            <div
+                class="bg-white rounded-[2.5rem] p-8 md:p-10 border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="font-bold text-xl text-stone-900 mb-6">Recent Presentations (2024-2025)</h3>
+                <div class="space-y-6">
+                    <div class="pb-4 border-b border-stone-50 last:border-0 last:pb-0">
+                        <span class="text-xs font-bold uppercase tracking-wide text-secondary-600">AGU Fall Meeting
+                            2024</span>
+                        <h4 class="font-bold text-stone-900 mt-1 mb-1">Hydrogeochemical Assessment of the Water
+                            Resources in the Brahmaputra River Basin, Northeast India</h4>
+                        <p class="text-sm text-stone-500">S Kumar, M Manga, A Dixit, M Nanda, SA Kartha, AM Nair</p>
+                    </div>
 
-                    <p><strong class="text-slate-900 block mb-1">EGU General Assembly 2025</strong>
-                        A modelling approach in evaluating the effect of climate and LULC on groundwater level of
-                        Cochin, Kerala, India<br>
-                        A Nair, A Bhuvaneswari</p>
+                    <div class="pb-4 border-b border-stone-50 last:border-0 last:pb-0">
+                        <span class="text-xs font-bold uppercase tracking-wide text-secondary-600">EGU General Assembly
+                            2025</span>
+                        <h4 class="font-bold text-stone-900 mt-1 mb-1">A modelling approach in evaluating the effect of
+                            climate and LULC on groundwater level of Cochin, Kerala, India</h4>
+                        <p class="text-sm text-stone-500">A Nair, A Bhuvaneswari</p>
+                    </div>
 
-                    <p><strong class="text-slate-900 block mb-1">IGARSS 2025</strong>
-                        A Deep Learning Framework for Mixed Spectra Analysis in Earth and Martian Hyperspectral Data<br>
-                        P Kumari, S Soor, AM Nair, A Sur</p>
+                    <div class="pb-4 border-b border-stone-50 last:border-0 last:pb-0">
+                        <span class="text-xs font-bold uppercase tracking-wide text-secondary-600">IGARSS 2025</span>
+                        <h4 class="font-bold text-stone-900 mt-1 mb-1">A Deep Learning Framework for Mixed Spectra
+                            Analysis in Earth and Martian Hyperspectral Data</h4>
+                        <p class="text-sm text-stone-500">P Kumari, S Soor, AM Nair, A Sur</p>
+                    </div>
 
-                    <p><strong class="text-slate-900 block mb-1">Asian Mining Congress 2025</strong>
-                        Mapping Mineral Prospects Using Spectral Mixture Analysis: A Study from Sittampundi Anorthosite
-                        Complex<br>
-                        A Ahmad, AM Nair</p>
-
-                    <p><strong class="text-slate-900 block mb-1">Geo-Congress 2024</strong>
-                        Comparative investigation of different plant species for heavy metal removal through
-                        phytoremediation<br>
-                        D Deka, K Ravi, AM Nair</p>
-
-                    <p><strong class="text-slate-900 block mb-1">EGU 2024</strong>
-                        Study of stable isotope in daily precipitation for the lower Brahmaputra region at Guwahati<br>
-                        M Nanda, AM Nair</p>
+                    <div class="pb-4 border-b border-stone-50 last:border-0 last:pb-0">
+                        <span class="text-xs font-bold uppercase tracking-wide text-secondary-600">Asian Mining Congress
+                            2025</span>
+                        <h4 class="font-bold text-stone-900 mt-1 mb-1">Mapping Mineral Prospects Using Spectral Mixture
+                            Analysis: A Study from Sittampundi Anorthosite Complex</h4>
+                        <p class="text-sm text-stone-500">A Ahmad, AM Nair</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm">
-                <h3 class="font-bold text-lg text-slate-900 mb-6">Selected Past Proceedings</h3>
-                <div class="space-y-6 text-sm text-slate-600">
-                    <p><strong class="text-slate-900 block mb-1">AGU Fall Meeting 2021</strong>
-                        Impact of Land Use Land Cover changes on the Groundwater Recharge in the Basistha River
-                        Watershed, India<br>
-                        D Deka, B Ande, K Ravi, AM Nair</p>
+            <div
+                class="bg-white rounded-[2.5rem] p-8 md:p-10 border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="font-bold text-xl text-stone-900 mb-6">Selected Past Proceedings</h3>
+                <div class="space-y-6">
+                    <div class="pb-4 border-b border-stone-50 last:border-0 last:pb-0">
+                        <span class="text-xs font-bold uppercase tracking-wide text-stone-500">AGU Fall Meeting
+                            2021</span>
+                        <h4 class="font-bold text-stone-900 mt-1 mb-1">Impact of Land Use Land Cover changes on the
+                            Groundwater Recharge in the Basistha River Watershed, India</h4>
+                        <p class="text-sm text-stone-500">D Deka, B Ande, K Ravi, AM Nair</p>
+                    </div>
 
-                    <p><strong class="text-slate-900 block mb-1">54th Lunar and Planetary Science Conference
-                            (2023)</strong>
-                        Mineralogical Analysis of Hesparian-Aged Regions of Ius Chasma, Melas Chasma and Capri Chasma of
-                        Valles Marineris<br>
-                        A Ahmad, H Chaudhary, AM Nair</p>
+                    <div class="pb-4 border-b border-stone-50 last:border-0 last:pb-0">
+                        <span class="text-xs font-bold uppercase tracking-wide text-stone-500">54th Lunar and Planetary
+                            Science Conference (2023)</span>
+                        <h4 class="font-bold text-stone-900 mt-1 mb-1">Mineralogical Analysis of Hesparian-Aged Regions
+                            of Ius Chasma, Melas Chasma and Capri Chasma of Valles Marineris</h4>
+                        <p class="text-sm text-stone-500">A Ahmad, H Chaudhary, AM Nair</p>
+                    </div>
 
-                    <p><strong class="text-slate-900 block mb-1">IGARSS 2021</strong>
-                        Detecting the Influence of Hydrocarbon Seepage on Plants: A Spectroscopic Approach<br>
-                        A Ahmad, AK Pal, SK Yadav, AM Nair</p>
-
-                    <p><strong class="text-slate-900 block mb-1">50th Annual Lunar and Planetary Science Conference
-                            (2019)</strong>
-                        Identification of Altered Silicate Minerals on Arsia, Pavonis, and Ascraeus Mons of Tharsis
-                        Volcanic Provinces of Mars<br>
-                        RR Patel, AM Nair, R Nagori, AS Arya</p>
-
+                    <div class="pb-4 border-b border-stone-50 last:border-0 last:pb-0">
+                        <span class="text-xs font-bold uppercase tracking-wide text-stone-500">IGARSS 2021</span>
+                        <h4 class="font-bold text-stone-900 mt-1 mb-1">Detecting the Influence of Hydrocarbon Seepage on
+                            Plants: A Spectroscopic Approach</h4>
+                        <p class="text-sm text-stone-500">A Ahmad, AK Pal, SK Yadav, AM Nair</p>
+                    </div>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <footer class="bg-white border-t border-slate-100 py-12">
+    <!-- Footer -->
+    <footer class="bg-white border-t border-stone-200 py-12">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="font-display font-bold text-slate-900 text-lg mb-2">Dr. Archana M Nair</p>
-            <p class="text-slate-500 text-sm mb-6">Remote Sensing &amp; Rock Physics Laboratory</p>
-            <div class="flex justify-center gap-6 text-sm font-medium text-slate-400">
-                <a href="index.html" class="hover:text-brand-600 transition-colors">Home</a>
-                <a href="research.html" class="hover:text-brand-600 transition-colors">Research</a>
-                <a href="contact.html" class="hover:text-brand-600 transition-colors">Contact</a>
+            <div
+                class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-50 text-primary-700 mb-6">
+                <span class="font-display font-bold text-lg">AN</span>
             </div>
-            <p class="text-slate-400 text-xs mt-8">© 2026. All rights reserved.</p>
+            <p class="font-display font-bold text-stone-900 text-xl mb-2">Dr. Archana M Nair</p>
+            <p class="text-stone-500 text-sm mb-8 font-medium">Remote Sensing &amp; Rock Physics Laboratory</p>
+
+            <div class="flex justify-center gap-8 text-sm font-semibold text-stone-400 mb-8">
+                <a href="index.html" class="hover:text-primary-700 transition-colors">Home</a>
+                <a href="research.html" class="hover:text-primary-700 transition-colors">Research</a>
+                <a href="projects.html" class="hover:text-primary-700 transition-colors">Projects</a>
+                <a href="contact.html" class="hover:text-primary-700 transition-colors">Contact</a>
+            </div>
+
+            <p class="text-stone-400 text-xs">© 2026. All rights reserved. IIT Guwahati.</p>
         </div>
     </footer>
 
     <script>
+        // Initialize Icons
         lucide.createIcons();
 
+        // Mobile Menu Logic
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            const isOpen = !menu.classList.contains('hidden');
+
+            if (isOpen) {
+                menu.classList.add('hidden');
+                document.body.style.overflow = '';
+            } else {
+                menu.classList.remove('hidden');
+                // Prevent scrolling when menu is open
+                document.body.style.overflow = 'hidden';
+            }
         }
     </script>
 </body>
